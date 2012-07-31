@@ -1,0 +1,19 @@
+.products table {
+  border-collapse: collapse; }
+.products table tr td {
+  padding: 5px;
+  vertical-align: top; }
+.products .list_image {
+  width: 60px;
+  height: 70px; }
+.products .list_description dl {
+  margin: 0; }
+.products .list_description dt {
+  color: #244;
+  font-weight: bold;
+  font-size: larger; }
+.products .list_description dd {
+  margin: 0; }
+.products .list_actions {
+  text-align: right;
+  padding-left: 1em; }
