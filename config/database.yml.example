@@ -35,7 +35,7 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: depot2_database
+  database: depot2_development
   pool: 5
   username: root
   password:
