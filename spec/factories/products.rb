@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :product do
-    title       'MyString'
+    title       'You can call me Beercules'
     description 'MyText'
     image_url   'ruby.jpg'
     price       9.99

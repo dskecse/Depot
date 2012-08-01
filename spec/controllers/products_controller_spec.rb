@@ -53,18 +53,18 @@ describe ProductsController do
     describe "with valid params" do
       it "creates a new Product" do
         expect {
-          post :create, { product: { title: 'MyString2', description: 'MyText', image_url: 'ruby.jpg', price: 9.99 } }
+          post :create, { product: { title: 'Drunken Octo Hipster', description: 'MyText', image_url: 'ruby.jpg', price: 9.99 } }
         }.to change(Product, :count).by(1)
       end
 
       it "assigns a newly created product as @product" do
-        post :create, { product: { title: 'MyString2', description: 'MyText', image_url: 'ruby.jpg', price: 9.99 } }
+        post :create, { product: { title: 'Drunken Octo Hipster', description: 'MyText', image_url: 'ruby.jpg', price: 9.99 } }
         assigns(:product).should be_a(Product)
         assigns(:product).should be_persisted
       end
 
       it "redirects to the created product" do
-        post :create, { product: { title: 'MyString2', description: 'MyText', image_url: 'ruby.jpg', price: 9.99 } }
+        post :create, { product: { title: 'Drunken Octo Hipster', description: 'MyText', image_url: 'ruby.jpg', price: 9.99 } }
         response.should redirect_to(Product.last)
       end
     end
@@ -96,7 +96,7 @@ describe ProductsController do
       end
 
       it "redirects to the product" do
-        put :update, { id: @product.to_param, product: { title: 'MyString', description: 'MyText', image_url: 'ruby.jpg', price: 9.99 } }
+        put :update, { id: @product.to_param, product: { title: 'Drunken Octo Hipster', description: 'MyText', image_url: 'ruby.jpg', price: 9.99 } }
         response.should redirect_to(@product)
       end
     end
