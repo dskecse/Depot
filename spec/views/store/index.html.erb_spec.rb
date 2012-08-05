@@ -27,6 +27,6 @@ describe 'store/index.html.erb' do
   end
 
   it 'shows formatted price' do
-    assert_select '.price', /\$[,\d]+\.\d\d/
+    assert_select '.price', /\A\$[,\d]+\.\d\d\z/
   end
 end
