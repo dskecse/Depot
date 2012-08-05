@@ -6,3 +6,11 @@
  *= require bootstrap
  *= require_tree . 
 */
+
+body {
+  padding: 60px 0 20px 0; }
+h1 {
+  margin: 0;
+  padding-bottom: 0.5em;
+  font: 19px sans-serif !important;
+  color: #333; }
