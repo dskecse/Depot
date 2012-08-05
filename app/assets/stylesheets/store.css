@@ -1,3 +1,10 @@
+.store .entry p, .store .entry div.price_line {
+  margin-left: 100px;
+  margin-top: 0.5em;
+  margin-bottom: 0.8em; }
+.store .entry p form, .store .entry p div, .store .entry div.price_line form, .store .entry div.price_line div {
+  display: inline; }
+
 .store h1 {
   margin: 0;
   padding-bottom: 0.5em;
