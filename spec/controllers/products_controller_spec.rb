@@ -22,6 +22,11 @@ describe ProductsController do
   before(:each) { @product = FactoryGirl.create(:product) }
 
   describe "GET index" do
+    it "should get index" do
+      get :index
+      response.should be_success
+    end
+
     it "assigns all products as @products" do
       get :index
       assigns(:products).should eq([@product])

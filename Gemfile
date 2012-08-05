@@ -28,6 +28,7 @@ gem 'simple_form', '~> 2.0.0'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails', '~> 3.0'
 end
 
 group :test do
@@ -36,7 +37,6 @@ group :test do
   gem 'fuubar'
   gem 'fuubar-cucumber'
   gem 'database_cleaner'
-  gem 'factory_girl_rails', '~> 3.0'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end
