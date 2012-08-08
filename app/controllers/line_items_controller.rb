@@ -22,9 +22,8 @@ class LineItemsController < ApplicationController
   def create
     @cart = current_cart
     product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(product: product)
-    flash[:notice] = 'Line item was successfully created.' if @line_item.save
-    respond_with @line_item, location: @line_item.cart
+    @line_item = @cart.add_product(product.id)
+    respond_with @line_item, location: @line_item.cart if @line_item.save
   end
 
   def update

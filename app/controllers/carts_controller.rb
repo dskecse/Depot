@@ -5,8 +5,14 @@ class CartsController < ApplicationController
   end
 
   def show
-    @cart = Cart.find(params[:id])
-    respond_with @cart
+    begin
+      @cart = Cart.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to access invalid cart #{ params[:id] }"
+      redirect_to root_url, alert: 'Invalid cart'
+    else
+      respond_with @cart
+    end
   end
 
   def new
@@ -34,9 +40,10 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    @cart = Cart.find(params[:id])
+    @cart = current_cart
     @cart.destroy
+    session[:cart_id] = nil
     flash[:notice] = 'Cart was successfully destroyed.' if @cart.destroy
-    respond_with @cart
+    respond_with @cart, location: root_path
   end
 end

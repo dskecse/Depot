@@ -94,6 +94,7 @@ describe CartsController do
 
   describe "DELETE destroy" do
     it "destroys the requested cart" do
+      session[:cart_id] = @cart.id
       expect {
         delete :destroy, { id: @cart.to_param }
       }.to change(Cart, :count).by(-1)
@@ -101,7 +102,7 @@ describe CartsController do
 
     it "redirects to the carts list" do
       delete :destroy, { id: @cart.to_param }
-      response.should redirect_to(carts_url)
+      response.should redirect_to(root_path)
     end
   end
 
