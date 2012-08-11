@@ -38,6 +38,6 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     flash[:notice] = 'Line item was successfully destroyed.' if @line_item.destroy
-    respond_with @line_item
+    respond_with @line_item, location: @line_item.cart
   end
 end

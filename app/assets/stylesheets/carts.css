@@ -6,3 +6,6 @@
   font-weight: bold; }
 .carts .total_cell {
   border-top: 1px solid #08c; }
+.carts .decrement {
+  padding-bottom: 0;
+  padding-left:   10px; }

@@ -41,20 +41,20 @@ describe LineItemsController do
       it "creates a new LineItem" do
         pending
         expect {
-          post :create, { line_item: { product_id: 1, cart_id: 1 } }
+          post :create, { line_item: { product_id: 1, cart_id: 1, price: 9.99, quantity: 1 } }
         }.to change(LineItem, :count).by(1)
       end
 
       it "assigns a newly created line_item as @line_item" do
         pending
-        post :create, { line_item: { product_id: 1, cart_id: 1 } }
+        post :create, { line_item: { product_id: 1, cart_id: 1, price: 9.99, quantity: 1 } }
         assigns(:line_item).should be_a(LineItem)
         assigns(:line_item).should be_persisted
       end
 
       it "redirects to the created line_item" do
         pending
-        post :create, { line_item: { product_id: 1, cart_id: 1 } }
+        post :create, { line_item: { product_id: 1, cart_id: 1, price: 9.99, quantity: 1 } }
         response.should redirect_to(LineItem.last)
       end
     end
@@ -105,7 +105,7 @@ describe LineItemsController do
 
     it "redirects to the line_items list" do
       delete :destroy, { id: @line_item.to_param }
-      response.should redirect_to(line_items_url)
+      response.should redirect_to(@line_item.cart)
     end
   end
 
