@@ -105,7 +105,7 @@ describe LineItemsController do
 
     it "redirects to the line_items list" do
       delete :destroy, { id: @line_item.to_param }
-      response.should redirect_to(@line_item.cart)
+      response.should redirect_to(root_path)
     end
   end
 
