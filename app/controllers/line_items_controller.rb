@@ -23,7 +23,7 @@ class LineItemsController < ApplicationController
     @cart = current_cart
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product)
-    respond_with @line_item, location: @line_item.cart if @line_item.save
+    respond_with @line_item, location: root_path if @line_item.save
   end
 
   def update
@@ -38,6 +38,6 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     flash[:notice] = 'Line item was successfully destroyed.' if @line_item.destroy
-    respond_with @line_item, location: @line_item.cart
+    respond_with @line_item, location: root_path
   end
 end

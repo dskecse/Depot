@@ -1,11 +1,14 @@
-.carts .item_price, .carts .total_line {
+.carts .item_price, #cart .item_price,
+.carts .total_line, #cart .total_line {
   text-align: right; }
-.carts .item_price {
+.carts .item_price, #cart .item_price {
   padding-left: 10px; }
-.carts .total_line, .carts .total_cell {
+.carts .total_line, #cart .total_line,
+.carts .total_cell, #cart .total_cell {
   font-weight: bold; }
-.carts .total_cell {
+.carts .total_cell, #cart .total_cell {
   border-top: 1px solid #08c; }
-.carts .decrement {
-  padding-bottom: 0;
-  padding-left:   10px; }
+.carts .decrement, #cart .decrement {
+  padding-left: 10px; }
+.item {
+  vertical-align: baseline; }

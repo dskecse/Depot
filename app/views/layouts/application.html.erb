@@ -10,33 +10,22 @@
   <header class="navbar navbar-fixed-top">
     <nav class="navbar-inner">
       <div class="container">
-        <a class="brand" href="/"><%= @page_title || 'Pragmatic Bookshelf' %></a>
-        <ul class="nav">
-          <li><%= link_to 'Store', root_path %></li>
-          <li><%= link_to 'Carts', carts_path %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle='dropdown'>Products
-              <b class='caret'></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'List all products', products_path %></li>
-              <li><%= link_to 'New product', new_product_path %></li>
-            </ul>
-          </li>
-        </ul>
+        <%= render 'layouts/navigation' %>
       </div>
     </nav>
   </header>
   <div id="main" role="main">
     <div class="container">
       <div class="row">
-        <div class="span12">
-          <% flash.each do |name, msg| %>
-            <div class="alert alert-<%= name == :notice ? 'success' : 'error' %>">
-              <a class="close" data-dismiss="alert">×</a>
-              <%= content_tag :div, msg, id: "flash_#{ name }" if msg.is_a?(String) %>
-            </div>
-          <% end %>
+        <% if controller.controller_name == 'store' %>
+          <div id="cart" class="span3">
+            <%= render @cart %>
+          </div>
+          <div class="span9">
+        <% else %>
+          <div class="span12">
+        <% end %>
+          <%= render 'layouts/messages' %>
           <%= yield %>
         </div>
       </div>
