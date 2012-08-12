@@ -25,7 +25,11 @@ class LineItemsController < ApplicationController
     @cart = current_cart
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product)
-    respond_with @line_item, location: root_path if @line_item.save
+    if @line_item.save
+      respond_with @line_item, location: root_path do |format|
+        format.js { @current_item = @line_item }
+      end
+    end
   end
 
   def update
