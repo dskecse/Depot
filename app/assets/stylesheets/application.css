@@ -22,4 +22,5 @@ h1 {
 #cart table {
   border-top: 1px dotted #08c;
   border-bottom: 1px dotted #08c;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  width: 100%; }

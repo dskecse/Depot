@@ -10,5 +10,8 @@
   border-top: 1px solid #08c; }
 .carts .decrement, #cart .decrement {
   padding-left: 10px; }
+.decrement {
+  width: 70px;
+  padding-right: 0; }
 .item {
   vertical-align: baseline; }

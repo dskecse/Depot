@@ -1,4 +1,6 @@
 class LineItemsController < ApplicationController
+  respond_to :js, only: :create
+
   def index
     @line_items = LineItem.all
     respond_with @line_items
