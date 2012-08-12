@@ -43,7 +43,6 @@ class CartsController < ApplicationController
     @cart = current_cart
     @cart.destroy
     session[:cart_id] = nil
-    flash[:notice] = 'Cart was successfully destroyed.' if @cart.destroy
     respond_with @cart, location: root_path
   end
 end
