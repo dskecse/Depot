@@ -29,4 +29,9 @@ describe 'store/index.html.erb' do
   it 'shows formatted price' do
     assert_select '.price', /\A\$[,\d]+\.\d\d\z/
   end
+
+  it 'markup needed for store.js.coffee is in place' do
+    assert_select '.entry > img', count: 2
+    assert_select '.entry input[type=submit]', count: 2
+  end
 end
