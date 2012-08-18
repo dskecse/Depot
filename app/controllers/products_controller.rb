@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  respond_to :atom, only: :who_bought
+
   def index
     @products = Product.all
     respond_with @products
@@ -37,6 +39,11 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     flash[:notice] = 'Product was successfully destroyed.' if @product.destroy
+    respond_with @product
+  end
+
+  def who_bought
+    @product = Product.find(params[:id])
     respond_with @product
   end
 end
