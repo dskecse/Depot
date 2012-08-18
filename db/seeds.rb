@@ -27,3 +27,10 @@ Product.create!(title: 'Rails Test Prescriptions',
                   </p>),
                 image_url: 'rtp.jpg',
                 price: 43.75)
+
+10.times do
+  Order.create!(name:    'Dave Thomas',
+                address: '12 Ocean Ave',
+                email:   'customer@gmail.com',
+                payment_type: Order::PAYMENT_TYPES[1])
+end
