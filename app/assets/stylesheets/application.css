@@ -16,6 +16,7 @@ h1 {
   color: #333; }
 
 #cart {
+  width: 310px !important;
   font-size: 11px; }
 #cart h1 {
   border-bottom: 0; }
@@ -23,4 +24,4 @@ h1 {
   border-top: 1px dotted #08c;
   border-bottom: 1px dotted #08c;
   margin-bottom: 10px;
-  width: 270px; }
+  width: 310px; }

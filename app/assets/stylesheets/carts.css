@@ -11,7 +11,7 @@
 .carts .decrement, #cart .decrement {
   padding-left: 10px; }
 .decrement {
-  width: 70px;
-  padding-right: 0; }
-.item {
-  vertical-align: baseline; }
+  width: 100px;
+  vertical-align: top;
+  padding-right: 0;
+  padding-top: 3px; }

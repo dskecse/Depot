@@ -1,5 +1,5 @@
 class LineItemsController < ApplicationController
-  respond_to :js, only: :create
+  respond_to :js, only: [:create, :destroy, :decrement]
 
   def index
     @line_items = LineItem.all
@@ -43,6 +43,17 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
-    respond_with @line_item, location: root_path
+    respond_with @line_item, location: root_path do |format|
+      format.js { @cart = current_cart }
+    end
+  end
+
+  def decrement
+    @line_item = LineItem.find(params[:id])
+    @line_item.quantity > 1 ? @line_item.decrement(:quantity) : @line_item.destroy
+    @line_item.save
+    respond_with @line_item, location: root_path do |format|
+      format.js { @cart = current_cart }
+    end
   end
 end

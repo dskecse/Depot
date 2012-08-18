@@ -18,10 +18,10 @@
     <div class="container">
       <div class="row">
         <% if controller.controller_name == 'store' %>
-          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart', class: 'span3') do %>
+          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart', class: 'span4') do %>
             <%= render @cart %>
           <% end %>
-          <div class="span9">
+          <div class="span8">
         <% else %>
           <div class="span12">
         <% end %>
