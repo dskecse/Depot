@@ -31,7 +31,7 @@ atom_feed do |feed|
           end
         end
 
-        xhtml.p "Paid by #{ order.payment_type }"
+        xhtml.p "Paid by #{ order.payment_type.name }"
       end
 
       entry.author do |author|

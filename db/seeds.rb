@@ -28,9 +28,13 @@ Product.create!(title: 'Rails Test Prescriptions',
                 image_url: 'rtp.jpg',
                 price: 43.75)
 
-10.times do
-  Order.create!(name:    'Dave Thomas',
-                address: '12 Ocean Ave',
-                email:   'customer@gmail.com',
-                payment_type: Order::PAYMENT_TYPES[1])
+['Check', 'Credit card', 'Purchase order'].each { |payment_type| PaymentType.create!(name: payment_type) }
+
+Order.transaction do
+  30.times do
+    Order.create!(name:    'Dave Thomas',
+                  address: '12 Ocean Ave',
+                  email:   'customer@gmail.com',
+                  payment_type_id: PaymentType.find_by_name('Check'))
+  end
 end

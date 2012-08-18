@@ -41,18 +41,18 @@ describe OrdersController do
     describe "with valid params" do
       it "creates a new Order" do
         expect {
-          post :create, { order: { name: 'MyString', address: 'MyText', email: 'MyString', payment_type: 'Check'} }
+          post :create, { order: { name: 'MyString', address: 'MyText', email: 'MyString', payment_type_id: 1 } }
         }.to change(Order, :count).by(1)
       end
 
       it "assigns a newly created order as @order" do
-        post :create, { order: { name: 'MyString', address: 'MyText', email: 'MyString', payment_type: 'Check'} }
+        post :create, { order: { name: 'MyString', address: 'MyText', email: 'MyString', payment_type_id: 1 } }
         assigns(:order).should be_a(Order)
         assigns(:order).should be_persisted
       end
 
       it "redirects to the root path" do
-        post :create, { order: { name: 'MyString', address: 'MyText', email: 'MyString', payment_type: 'Check'} }
+        post :create, { order: { name: 'MyString', address: 'MyText', email: 'MyString', payment_type_id: 1 } }
         response.should redirect_to(root_path)
       end
     end

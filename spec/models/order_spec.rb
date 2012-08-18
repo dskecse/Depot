@@ -28,20 +28,10 @@ describe Order do
     end
   end
 
-  describe '.payment_type' do
+  describe '.payment_type_id' do
     it 'is required' do
-      order.payment_type = nil
-      order.should have(1).error_on(:payment_type)
-    end
-
-    it 'should be included in a list' do
-      order = FactoryGirl.create(:order, payment_type: 'Purchase order')
-      order.should be_valid
-    end
-
-    it 'should be included in a list' do
-      order = FactoryGirl.build(:order, payment_type: 'None')
-      order.should have(1).error_on(:payment_type)
+      order.payment_type_id = nil
+      order.should have(1).error_on(:payment_type_id)
     end
   end
 end

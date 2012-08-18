@@ -5,7 +5,7 @@
     <%= f.input :name %>
     <%= f.input :address, input_html: { rows: 6 } %>
     <%= f.input :email %>
-    <%= f.input :payment_type, collection: Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>
+    <%= f.association :payment_type, prompt: 'Select a payment method' %>
   </div>
 
   <div class="form-actions">

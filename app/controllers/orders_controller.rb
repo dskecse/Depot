@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
 
   def edit
     @order = Order.find(params[:id])
+    respond_with @order
   end
 
   def create

@@ -3,6 +3,6 @@ FactoryGirl.define do
     name    'David Hansson'
     address '123 Ocean Ave, Miami, FL'
     email   'david@37signals.com'
-    payment_type 'Check'
+    association :payment_type
   end
 end
