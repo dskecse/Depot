@@ -10,6 +10,7 @@ class CartsController < ApplicationController
     begin
       @cart = Cart.find(params[:id])
     rescue ActiveRecord::RecordNotFound
+      ErrorNotifier.denied(@cart).deliver
       logger.error "Attempt to access invalid cart #{ params[:id] }"
       redirect_to root_url, alert: 'Invalid cart'
     else
