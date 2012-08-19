@@ -30,6 +30,7 @@ class OrdersController < ApplicationController
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
+      OrderNotifier.received(@order).deliver
       flash[:notice] = 'Thank you for your order.'
     else
       @cart = current_cart
