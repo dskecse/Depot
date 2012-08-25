@@ -40,18 +40,18 @@ describe PaymentTypesController do
     context "with valid params" do
       it "creates a new PaymentType" do
         expect {
-          post :create, { payment_type: {} }
+          post :create, { payment_type: { name: 'Yandex.money' } }
         }.to change(PaymentType, :count).by(1)
       end
 
       it "assigns a newly created payment_type as @payment_type" do
-        post :create, { payment_type: {} }
+        post :create, { payment_type: { name: 'Yandex.money' } }
         assigns(:payment_type).should be_a(PaymentType)
         assigns(:payment_type).should be_persisted
       end
 
       it "redirects to the created payment_type" do
-        post :create, { payment_type: {} }
+        post :create, { payment_type: { name: 'Yandex.money' } }
         response.should redirect_to(PaymentType.last)
       end
     end

@@ -6,4 +6,11 @@ describe PaymentType do
   it 'is valid with valid attributes' do
     payment_type.should be_valid
   end
+
+  describe '.name' do
+    it 'is required' do
+      payment_type.name = nil
+      payment_type.should have(1).error_on(:name)
+    end
+  end
 end

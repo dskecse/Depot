@@ -20,7 +20,7 @@ describe ErrorNotifier do
     end
 
     it 'renders the body' do
-      mail.body.encoded.should match('Attempt to access invalid cart')
+      mail.body.encoded.should match('attempt to access invalid cart')
     end
   end
 end

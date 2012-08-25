@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 describe LineItemsController do
-  before(:each) do
-    @line_item = FactoryGirl.create(:line_item)
-    @order = FactoryGirl.create(:order)
-  end
+  before(:each) { @line_item = FactoryGirl.create(:line_item) }
 
   describe "GET index" do
     it "should get index" do
@@ -40,33 +37,32 @@ describe LineItemsController do
   end
 
   describe "POST create" do
+    before do
+      product = FactoryGirl.create(:product, title: 'Octo Hipster')
+      Product.stub(:find).and_return(product)
+    end
+
     context "with valid params" do
       it "creates a new LineItem" do
-        pending
-        expect {
-          post :create, { line_item: { product_id: 1, cart_id: 1, order_id: 1, price: 9.99, quantity: 1 } }
-        }.to change(LineItem, :count).by(1)
+        expect { post :create }.to change(LineItem, :count).by(1)
       end
 
       it "assigns a newly created line_item as @line_item" do
-        pending
-        post :create, { line_item: { product_id: 1, cart_id: 1, order_id: 1, price: 9.99, quantity: 1 } }
+        post :create
         assigns(:line_item).should be_a(LineItem)
         assigns(:line_item).should be_persisted
       end
 
-      it "redirects to the created line_item" do
-        pending
-        post :create, { line_item: { product_id: 1, cart_id: 1, order_id: 1, price: 9.99, quantity: 1 } }
-        response.should redirect_to(LineItem.last)
+      it "redirects to the root path" do
+        post :create
+        response.should redirect_to(root_path)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved line_item as @line_item" do
-        pending
         LineItem.any_instance.stub(:save).and_return(false)
-        post :create, { line_item: {} }
+        post :create
         assigns(:line_item).should be_a_new(LineItem)
       end
     end

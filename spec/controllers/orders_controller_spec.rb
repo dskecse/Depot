@@ -24,7 +24,9 @@ describe OrdersController do
 
   describe "GET new" do
     it "assigns a new order as @order" do
-      pending
+      cart = FactoryGirl.create(:cart)
+      session[:cart_id] = cart.id
+      FactoryGirl.create(:line_item, cart_id: cart)
       get :new
       assigns(:order).should be_a_new(Order)
     end
