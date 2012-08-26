@@ -60,5 +60,5 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 Capybara.register_driver :selenium do |app|
-  Capybara::Driver::Selenium.new(app, browser: :firefox)
+  Capybara::Selenium::Driver.new(app, browser: :firefox)
 end
