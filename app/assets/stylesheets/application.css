@@ -25,3 +25,6 @@ h1 {
   border-bottom: 1px dotted #08c;
   margin-bottom: 10px;
   width: 310px; }
+
+.help-block {
+  font-size: 12px; }

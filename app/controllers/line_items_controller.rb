@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+  skip_before_filter :authenticate_user!, only: [:create, :decrement, :destroy]
   respond_to :js, only: [:create, :destroy, :decrement]
 
   def index

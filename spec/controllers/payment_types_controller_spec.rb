@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe PaymentTypesController do
   before(:each) { @payment_type = FactoryGirl.create(:payment_type) }
+  login_user
 
   describe "GET index" do
     it "should get index" do

@@ -3,6 +3,9 @@ Feature: Product Purchase
   As a user
   I want to add a product to cart and checkout
 
+  Background:
+    Given I am logged in as a user
+
   @javascript
   Scenario: Adding Product to Cart
     Given there is a product titled 'Programming Ruby'
@@ -13,10 +16,10 @@ Feature: Product Purchase
     And I follow 'Checkout'
     Then I should see 'Please Enter Your Details'
     When I fill in the following:
-      | Name    | Ray W. Jones      |
-      | Address | 123 Ocean Ave     |
-      | Email   | dskecse@gmail.com |
+      | Name    | Ray W. Jones         |
+      | Address | 123 Ocean Ave        |
+      | Email   | customer@example.com |
     And I select 'Check' from 'Payment type'
     And I press 'Place Order'
     Then I should see 'Thank you for your order.'
-    And I should have a mail confirmation on dskecse@gmail.com
+    And I should have a mail confirmation on customer@example.com

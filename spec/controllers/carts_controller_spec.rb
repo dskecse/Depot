@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe CartsController do
   before(:each) { @cart = FactoryGirl.create(:cart) }
+  login_user
 
   describe "GET index" do
     it "should get index" do

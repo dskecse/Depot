@@ -1,4 +1,6 @@
 common: &common
+  host: 'localhost:3000'
+  mail_sender: 'noreply@example.com'
   smtp_settings:
     :address: 'smtp.gmail.com'
     :port: 587

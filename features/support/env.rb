@@ -53,6 +53,9 @@ end
 #     DatabaseCleaner.strategy = :transaction
 #   end
 #
+Before do
+  DatabaseCleaner.clean
+end
 
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.

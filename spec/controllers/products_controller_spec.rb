@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe ProductsController do
   before(:each) { @product = FactoryGirl.create(:product) }
+  login_user
 
   describe "GET index" do
     it "should get index" do
@@ -104,5 +105,4 @@ describe ProductsController do
       response.should redirect_to(products_url)
     end
   end
-
 end

@@ -19,6 +19,7 @@ module Depot2
     config.autoload_paths += %W(#{config.root}/lib)
 
     require 'app_config'
+    config.action_mailer.default_url_options = { host: AppConfig.host }
     config.action_mailer.smtp_settings = AppConfig.smtp_settings
 
     # Only load the plugins named here, in the order given (default is alphabetical).
@@ -40,7 +41,7 @@ module Depot2
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
+    config.filter_parameters += [:password, :password_confirmation]
 
     # Enable the asset pipeline
     config.assets.enabled = true

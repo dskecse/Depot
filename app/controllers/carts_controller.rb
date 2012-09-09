@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  skip_before_filter :authenticate_user!, only: [:create, :update, :destroy]
   respond_to :js, only: :destroy
 
   def index

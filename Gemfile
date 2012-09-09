@@ -16,8 +16,9 @@ end
 
 gem 'jquery-rails'
 
-gem 'simple_form', '~> 2.0.0'
+gem 'devise', '~> 2.1.2'
 gem 'kaminari'
+gem 'simple_form', '~> 2.0.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -29,8 +30,9 @@ gem 'kaminari'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
+  gem 'railroady'
   gem 'rspec-rails', '~> 2.0'
-  gem 'factory_girl_rails', '~> 3.0'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :test do
