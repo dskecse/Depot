@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe OrdersController do
   before(:each) { @order = FactoryGirl.create(:order) }
-  login_user
+  login_admin
 
   describe "GET index" do
     it "should get index" do

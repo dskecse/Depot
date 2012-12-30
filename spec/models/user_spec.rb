@@ -11,4 +11,14 @@ describe User do
       user.should have(1).error_on(:email)
     end
   end
+
+  describe '#is?' do
+    it 'should return true if string matches user\'s role' do
+      user.is?('user').should be_true
+    end
+
+    it 'should return false if string does not match users\'s role' do
+      user.is?('fault_role').should be_false
+    end
+  end
 end

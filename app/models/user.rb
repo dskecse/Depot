@@ -8,10 +8,14 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
+  has_many :orders
+  has_one :cart, dependent: :destroy
+
   validates :email, uniqueness: true
 
-  has_many :orders, dependent: :destroy
-  has_one  :cart,   dependent: :destroy
-
   ROLES = %w(admin user)
+
+  def is?(user_role)
+    self.role == user_role
+  end
 end

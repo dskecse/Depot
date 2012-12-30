@@ -30,7 +30,7 @@ Product.create!(title: 'Rails Test Prescriptions',
 
 ['Check', 'Credit card', 'Purchase order'].each { |payment_type| PaymentType.create!(name: payment_type) }
 
-User::ROLES.each do |role|
+User::ROLES.map do |role|
   User.new.tap do |user|
     user.email        = "#{ role }@example.com"
     user.password     = 'secret'
@@ -44,7 +44,7 @@ Order.transaction do
     Order.create!(name:    'Dave Thomas',
                   address: '12 Ocean Ave',
                   email:   'user@example.com',
-                  user_id: User.where(role: 'user').last,
+                  user:    User.find_by_role('user'),
                   payment_type_id: PaymentType.find_by_name('Check'))
   end
 end

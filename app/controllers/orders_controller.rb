@@ -1,12 +1,8 @@
 class OrdersController < ApplicationController
-  def index
-    @orders = Order.page(params[:page]).per(10)
-    respond_with @orders
-  end
+  load_and_authorize_resource except: :new
 
-  def show
-    @order = Order.find(params[:id])
-    respond_with @order
+  def index
+    @orders = @orders.includes(:payment_type).joins(:payment_type).page(params[:page]).per(10)
   end
 
   def new
@@ -19,13 +15,7 @@ class OrdersController < ApplicationController
     respond_with @order
   end
 
-  def edit
-    @order = Order.find(params[:id])
-    respond_with @order
-  end
-
   def create
-    @order = Order.new(params[:order])
     @order.add_line_items_from_cart(current_cart)
     if @order.save
       Cart.destroy(session[:cart_id])
@@ -39,7 +29,6 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order = Order.find(params[:id])
     if @order.update_attributes(params[:order])
       OrderNotifier.shipped(@order).deliver if @order.ship_date_changed?
       flash[:notice] = 'Order was successfully updated.'
@@ -48,9 +37,7 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    @order = Order.find(params[:id])
-    @order.destroy
-    flash[:notice] = 'Order was successfully destroyed.'
+    flash[:notice] = 'Order was successfully destroyed.' if @order.destroy
     respond_with @order
   end
 end

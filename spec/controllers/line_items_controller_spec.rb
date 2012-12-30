@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe LineItemsController do
   before(:each) { @line_item = FactoryGirl.create(:line_item) }
-  login_user
+  login_admin
 
   describe "GET index" do
     it "should get index" do
