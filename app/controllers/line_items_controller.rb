@@ -14,9 +14,7 @@ class LineItemsController < ApplicationController
   end
 
   def update
-    if @line_item.update_attributes(params[:line_item])
-      flash[:notice] = 'Line item was successfully updated.'
-    end
+    @line_item.update_attributes(params[:line_item])
     respond_with @line_item
   end
 

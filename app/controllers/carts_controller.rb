@@ -5,14 +5,12 @@ class CartsController < ApplicationController
   respond_to :js, only: :destroy
 
   def create
-    flash[:notice] = 'Cart was successfully created.' if @cart.save
+    @cart.save
     respond_with @cart
   end
 
   def update
-    if @cart.update_attributes(params[:cart])
-      flash[:notice] = 'Cart was successfully updated.'
-    end
+    @cart.update_attributes(params[:cart])
     respond_with @cart
   end
 

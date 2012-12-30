@@ -21,7 +21,6 @@ class OrdersController < ApplicationController
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       OrderNotifier.received(@order).deliver
-      flash[:notice] = 'Thank you for your order.'
     else
       @cart = current_cart
     end
@@ -29,15 +28,14 @@ class OrdersController < ApplicationController
   end
 
   def update
-    if @order.update_attributes(params[:order])
-      OrderNotifier.shipped(@order).deliver if @order.ship_date_changed?
-      flash[:notice] = 'Order was successfully updated.'
+    if @order.update_attributes(params[:order]) and @order.ship_date_changed?
+      OrderNotifier.shipped(@order).deliver
     end
     respond_with @order
   end
 
   def destroy
-    flash[:notice] = 'Order was successfully destroyed.' if @order.destroy
+    @order.destroy
     respond_with @order
   end
 end

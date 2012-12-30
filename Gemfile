@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'cancan'
 gem 'devise', '~> 2.1.2'
 gem 'kaminari'
+gem 'responders'
 gem 'simple_form', '~> 2.0.0'
 
 group :test, :development do

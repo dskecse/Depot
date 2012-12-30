@@ -4,19 +4,17 @@ class ProductsController < ApplicationController
   respond_to :atom, only: :who_bought
 
   def create
-    flash[:notice] = 'Product was successfully created.' if @product.save
+    @product.save
     respond_with @product
   end
 
   def update
-    if @product.update_attributes(params[:product])
-      flash[:notice] = 'Product was successfully updated.'
-    end
+    @product.update_attributes(params[:product])
     respond_with @product
   end
 
   def destroy
-    flash[:notice] = 'Product was successfully destroyed.' if @product.destroy
+    @product.destroy
     respond_with @product
   end
 
