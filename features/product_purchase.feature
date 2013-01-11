@@ -4,7 +4,7 @@ Feature: Product Purchase
   I want to add a product to cart and checkout
 
   Background:
-    Given I am logged in as a user
+    Given I am logged in as user
 
   @javascript
   Scenario: Adding Product to Cart

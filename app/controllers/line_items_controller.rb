@@ -26,8 +26,7 @@ class LineItemsController < ApplicationController
   end
 
   def decrement
-    @line_item.quantity > 1 ? @line_item.decrement(:quantity) : @line_item.destroy
-    @line_item.save
+    @line_item.quantity > 1 ? @line_item.decrement!(:quantity) : @line_item.destroy
     respond_with @line_item, location: root_path do |format|
       format.js { @cart = current_cart }
     end

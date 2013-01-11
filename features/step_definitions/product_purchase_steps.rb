@@ -1,4 +1,4 @@
-Given /^I am logged in as a (.+)$/ do |role|
+Given /^I am logged in as (.+)$/ do |role|
   user = FactoryGirl.create(role.to_sym)
 
   visit new_user_session_path
@@ -28,11 +28,7 @@ Then /^I follow '(.+)'$/ do |label|
 end
 
 Then /^I should see '(.+)'$/ do |text|
-  if page.respond_to? :should
-    page.should have_content(text)
-  else
-    assert page.has_content?(text)
-  end
+  expect(page).to have_content(text)
 end
 
 When /^I fill in the following:$/ do |table|
@@ -47,5 +43,5 @@ end
 
 Then /^I should have a mail confirmation on (.+)$/ do |email|
   mail = ActionMailer::Base.deliveries.last
-  mail.to.should eq([email])
+  expect(mail.to).to eq([email])
 end

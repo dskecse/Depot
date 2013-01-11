@@ -3,47 +3,27 @@ require 'spec_helper'
 describe OrderNotifier do
   let(:order) { FactoryGirl.create(:order) }
 
-  describe 'received' do
+  describe '#received' do
     let(:mail) { OrderNotifier.received(order) }
 
-    context 'renders the header of' do
-      it 'the subject' do
-        mail.subject.should eq('Pragmatic Store Order Confirmation')
-      end
-
-      it 'order email' do
-        mail.to.should eq([order.email])
-      end
-
-      it 'sender email' do
-        mail.from.should eq(['dskecse@gmail.com'])
-      end
+    context 'renders the headers' do
+      it { expect(mail.subject).to eq('Pragmatic Store Order Confirmation') }
+      it { expect(mail.to).to eq([order.email]) }
+      it { expect(mail.from).to eq(['dskecse@gmail.com']) }
     end
 
-    it 'renders the body' do
-      mail.body.encoded.should match('You ordered the following items:')
-    end
+    it { expect(mail.body.encoded).to match('You ordered the following items:') }
   end
 
-  describe 'shipped' do
+  describe '#shipped' do
     let(:mail) { OrderNotifier.shipped(order) }
 
-    context 'renders the header of' do
-      it 'the subject' do
-        mail.subject.should eq('Pragmatic Store Order Shipped')
-      end
-
-      it 'order email' do
-        mail.to.should eq([order.email])
-      end
-
-      it 'sender email' do
-        mail.from.should eq(['dskecse@gmail.com'])
-      end
+    context 'renders the headers' do
+      it { expect(mail.subject).to eq('Pragmatic Store Order Shipped') }
+      it { expect(mail.to).to eq([order.email]) }
+      it { expect(mail.from).to eq(['dskecse@gmail.com']) }
     end
 
-    it 'renders the body' do
-      mail.body.encoded.should match('shipped your recent order:')
-    end
+    it { expect(mail.body.encoded).to match('shipped your recent order:') }
   end
 end

@@ -1,89 +1,42 @@
 require 'spec_helper'
 
 describe Product do
-  let(:product) { FactoryGirl.create(:product) }
+  subject(:product) { FactoryGirl.create(:product) }
 
-  it 'is valid with valid attributes' do
-    product.should be_valid
+  it { should have_many(:line_items) }
+  it { should have_many(:orders).through(:line_items) }
+
+  [:title, :description, :image_url].each do |field|
+    it { should validate_presence_of(field) }
   end
 
-  describe '.title' do
-    it 'is required' do
-      product.title = nil
-      product.should have(2).error_on(:title)
-    end
+  it { should validate_numericality_of(:price) }
+  it { should validate_uniqueness_of(:title) }
+  it { should ensure_length_of(:title).is_at_least(10).
+                with_message(/must be at least 10 characters long/) }
+  it { should validate_format_of(:image_url).with(/\.(gif|jpg|png)\z/i) }
 
-    it 'is unique' do
-      another_product = FactoryGirl.build(:product, title: product.title)
-      another_product.should have(1).error_on(:title)
-    end
-
-    it 'must be at least 10 characters long' do
-      product.title = 'This is an acceptable title'
-      product.should be_valid
-    end
-
-    it 'must be at least 10 characters long' do
-      product.title = 'So is this'
-      product.should be_valid
-    end
-
-    it 'must be at least 10 characters long' do
-      product.title = 'Not this'
-      product.should have(1).error_on(:title)
-    end
-  end
-
-  describe '.description' do
-    it 'is required' do
-      product.description = nil
-      product.should have(1).error_on(:description)
-    end
-  end
-
-  describe '.image_url' do
-    it 'is required' do
-      product.image_url = nil
-      product.should have(1).error_on(:image_url)
-    end
-
-    it 'must be a url for gif, jpg or png image' do
-      %w(fred.gif fred.jpg fred.png FRED.GIF FRED.Jpg http://a.b.c/x/y/z/fred.gif).each do |image|
-        FactoryGirl.build(:product, image_url: image).should be_valid
-      end
-    end
-
-    it 'must be a url for gif, jpg or png image' do
-      %w(fred.doc fred.gif/more fred.gif.more).each do |image|
-        FactoryGirl.build(:product, image_url: image).should have(1).error_on(:image_url)
-      end
-    end
-  end
-
-  describe '.price' do
-    it 'is required' do
-      product.price = nil
-      product.should have(1).error_on(:price)
-    end
-
-    it 'must be a number' do
-      product.price = 'NN'
-      product.should have(1).error_on(:price)
-    end
-
-    it 'must be positive' do
-      product.price = -1
-      product.should have(1).error_on(:price)
-    end
-
+  describe 'price' do
     it 'must be greater than or equal to 0.01' do
       product.price = 0
-      product.should have(1).error_on(:price)
+      expect(product).to have(1).error_on(:price)
     end
 
     it 'must be greater than or equal to 0.01' do
       product.price = 1
-      product.should be_valid
+      expect(product).to be_valid
+    end
+  end
+
+  describe '#ensure_not_referenced_by_any_line_item' do
+    it 'should allow to destroy a product if no line_items' do
+      product.line_items = []
+      expect { product.destroy }.to change(Product, :count).by(-1)
+    end
+
+    it 'should not allow to destroy a product if any line_items' do
+      product.line_items << FactoryGirl.build(:line_item, product: product)
+      expect { product.destroy }.to change(Product, :count).by(0)
     end
   end
 end
