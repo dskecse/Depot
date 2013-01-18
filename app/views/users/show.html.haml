@@ -1,0 +1,9 @@
+%p
+  %b Email:
+  = @user.email
+
+%p
+  %b Signed up:
+  = @user.created_at
+
+= link_to 'Back', users_path

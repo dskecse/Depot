@@ -1,0 +1,10 @@
+= simple_form_for(@line_item, html: { class: 'form-horizontal' }, defaults: { input_html: { class: 'span4' } }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :product_id
+    = f.input :cart_id
+    = f.input :price
+
+  .form-actions
+    = f.button :submit

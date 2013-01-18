@@ -1,0 +1,11 @@
+= simple_form_for(@product, html: { class: 'form-horizontal' }, defaults: { input_html: { class: 'span4' } }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :description, input_html: { rows: 6 }
+    = f.input :image_url, label: 'Image URL'
+    = f.input :price
+
+  .form-actions
+    = f.button :submit

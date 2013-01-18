@@ -1,0 +1,19 @@
+%p
+  %b Name:
+  = @order.name
+
+%p
+  %b Address:
+  = @order.address
+
+%p
+  %b Email:
+  = @order.email
+
+%p
+  %b Payment type:
+  = @order.payment_type.name
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path

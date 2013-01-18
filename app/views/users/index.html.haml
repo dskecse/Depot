@@ -1,0 +1,23 @@
+%h1 Listing users
+
+%table
+  %tr
+    %th Email
+    %th Role
+    %th Signed up
+    %th
+    %th
+    %th
+
+  - @users.each do |user|
+    %tr
+      %td= user.email
+      %td= user.role
+      %td= user.created_at.localtime
+      %td= link_to 'Show', user
+      %td= link_to 'Edit', edit_user_registration_path
+      %td= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete
+
+%br
+
+= paginate @users

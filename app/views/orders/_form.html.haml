@@ -1,0 +1,11 @@
+= simple_form_for(@order, html: { class: 'form-horizontal' }, defaults: { input_html: { class: 'span4' } }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :address, input_html: { rows: 6 }
+    = f.input :email
+    = f.association :payment_type, prompt: 'Select a payment method'
+
+  .form-actions
+    = f.button :submit, 'Place Order'

@@ -1,0 +1,8 @@
+= simple_form_for(@payment_type, html: { class: 'form-horizontal' }, defaults: { input_html: { class: 'span4' } }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+
+  .form-actions
+    = f.button :submit
