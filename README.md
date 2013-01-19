@@ -16,3 +16,7 @@ Download prebuilt ChromeDriver server:
     sudo unzip path_to_chromedriver/chromedriver_linux64_23.0.1240.0.zip -d /usr/local/bin/
 
 or download it manually from `https://code.google.com/p/chromedriver/downloads/list`
+
+Test coverage is disabled by default. To enable it make sure to run tests in `COVERAGE` environment:
+
+    COVERAGE=true be rake
