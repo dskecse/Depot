@@ -7,3 +7,4 @@ config/database.yml
 config/app_config.yml
 coverage/
 test/
+chromedriver.log

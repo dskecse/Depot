@@ -62,6 +62,10 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :firefox)
+# In order to use chrome browser in acceptance tests download chromedriver
+# http://code.google.com/p/chromedriver/downloads/list
+Capybara.register_driver :selenium_chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
+
+Capybara.javascript_driver = :selenium_chrome
