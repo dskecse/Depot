@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/dskecse/depot2)
+[![Code Climate](https://codeclimate.com/github/dskecse/depot2.png)](https://codeclimate.com/github/dskecse/depot2)
 
 Setup:
 
