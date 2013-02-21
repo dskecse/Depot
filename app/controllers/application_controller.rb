@@ -22,13 +22,10 @@ class ApplicationController < ActionController::Base
 
   private
 
-    # TODO: Rewrite method so that it creates carts with user_ids
     def current_cart
-      # if current_user && current_user.cart
-      #   cart = current_user.cart
       Cart.find(session[:cart_id])
     rescue ActiveRecord::RecordNotFound
-      cart = Cart.create
+      cart = Cart.create(user: current_user)
       session[:cart_id] = cart.id
       cart
     end

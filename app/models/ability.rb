@@ -12,10 +12,10 @@ class Ability
   end
 
   def user
-    can :manage, LineItem, cart_id: @user.cart # TODO: Fix bug when user cannot add products to cart (user_id == nil in cart)
+    can :manage, LineItem, cart: @user.cart
     can :manage, Order, user_id: @user.id
     can :manage, User, id: @user.id
-    can :manage, Cart, id: @user.cart
+    can :manage, Cart, id: @user.cart.id
     cannot :manage, Product
   end
 
