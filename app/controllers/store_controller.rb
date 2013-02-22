@@ -2,7 +2,11 @@ class StoreController < ApplicationController
   skip_before_filter :authenticate_user!
 
   def index
-    @products = Product.order(:title)
-    @cart = current_cart
+    if params[:set_locale]
+      redirect_to root_path(locale: params[:set_locale])
+    else
+      @products = Product.order(:title)
+      @cart = current_cart
+    end
   end
 end

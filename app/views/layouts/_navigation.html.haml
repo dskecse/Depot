@@ -22,3 +22,5 @@
         %li= link_to t('.logout_html'),  destroy_user_session_path, method: :delete
   - else
     %li= link_to t('.signin'), new_user_session_path
+
+= render 'layouts/locale_switcher'
