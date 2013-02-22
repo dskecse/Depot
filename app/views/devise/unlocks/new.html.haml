@@ -1,6 +1,6 @@
 %h1 Resend unlock instructions
 
-= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { class: 'form-horizontal', method: :post }, defaults: { input_html: { class: 'span4' } }) do |f|
+= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }, defaults: { input_html: { class: 'span4' } }) do |f|
   = f.error_notification
 
   .form-inputs
