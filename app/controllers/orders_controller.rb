@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
   def new
     @cart = current_cart
     if @cart.line_items.empty?
-      redirect_to root_path, alert: 'Your cart is empty.'
+      redirect_to root_path, alert: I18n.t('.empty')
       return
     end
     @order = Order.new
@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       OrderNotifier.received(@order).deliver
-      flash[:notice] = 'Thank you for your order.'
+      flash[:notice] = I18n.t('.thanks')
     else
       @cart = current_cart
     end

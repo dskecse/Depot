@@ -1,24 +1,24 @@
 = link_to root_path, class: 'brand' do
-  = @page_title || 'Pragmatic Bookshelf'
+  = @page_title || t('.title')
 %ul.nav
-  %li= link_to 'Store',  root_path
-  %li= link_to 'Carts',  carts_path
-  %li= link_to 'Orders', orders_path
+  %li= link_to t('.store'), root_path
+  %li= link_to t('.carts'), carts_path
+  %li= link_to t('.orders_html'), orders_path
   %li.dropdown
     = link_to '#', data: { toggle: 'dropdown' } do
-      Products
+      = t('.products')
       %b.caret
     %ul.dropdown-menu
-      %li= link_to 'List all products', products_path
-      %li= link_to 'New product', new_product_path
+      %li= link_to t('.list_products'), products_path
+      %li= link_to t('.new_product'),   new_product_path
   - if user_signed_in?
     %li.dropdown
       = link_to '#', data: { toggle: 'dropdown' } do
-        Users
+        = t('.users')
         %b.caret
       %ul.dropdown-menu
-        %li= link_to 'Edit profile', edit_user_registration_path
-        %li= link_to 'List users', users_path
-        %li= link_to 'Log out', destroy_user_session_path, method: :delete
+        %li= link_to t('.edit_profile'), edit_user_registration_path
+        %li= link_to t('.list_users'),   users_path
+        %li= link_to t('.logout_html'),  destroy_user_session_path, method: :delete
   - else
-    %li= link_to 'Sign In', new_user_session_path
+    %li= link_to t('.signin'), new_user_session_path

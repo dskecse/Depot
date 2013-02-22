@@ -1,0 +1,17 @@
+es:
+  simple_form:
+    "yes": "S&iacute;"
+    "no": 'No'
+    required:
+      text: 'necesario'
+      mark: '*'
+    error_notification:
+      default_message: 'Hay problemas con los siguientes campos:'
+    labels:
+      order:
+        name:           'Nombre'
+        address:        "Direcci&oacute;n"
+        email:          'E-mail'
+        payment_type:   'Forma de pago'
+        payment_prompt: 'Seleccione un m&eacute;todo de pago'
+        submit:         'Realizar Pedido'

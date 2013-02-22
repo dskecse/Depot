@@ -5,7 +5,7 @@
     = f.input :name
     = f.input :address, input_html: { rows: 6 }
     = f.input :email
-    = f.association :payment_type, prompt: 'Select a payment method'
+    = f.association :payment_type, prompt: t('.payment_prompt_html')
 
   .form-actions
-    = f.button :submit, 'Place Order'
+    = f.button :submit, t('.submit')

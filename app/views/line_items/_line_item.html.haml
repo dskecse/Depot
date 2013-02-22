@@ -5,4 +5,4 @@
   %td.decrement
     .btn-group
       = link_to '&ndash;'.html_safe, decrement_path(id: line_item.id), method: :post, remote: true, class: 'btn'
-      = link_to 'Destroy', line_item, method: :delete, remote: true, class: 'btn'
+      = link_to t('.destroy'), line_item, method: :delete, remote: true, class: 'btn'
