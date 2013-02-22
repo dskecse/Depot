@@ -55,7 +55,7 @@ es:
         blank:     'no puede quedar en blanco'
 
     models:
-      order: 'pedido'
+      order: 'Pedido'
 
     attributes:
       order:
