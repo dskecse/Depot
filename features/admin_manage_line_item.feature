@@ -23,5 +23,5 @@ Feature: Admin Manages Line Item
     Given there is a product titled 'Programming Ruby'
     And I am at the store catalog
     And I press 'Add to Cart' 2 times
-    When I press 'Destroy'
+    When I follow 'Destroy'
     Then I should not see 'Your Pragmatic Cart'
