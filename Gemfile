@@ -17,9 +17,9 @@ gem 'cancan'
 gem 'devise', '~> 2.1.2'
 gem 'haml-rails'
 gem 'kaminari'
+gem 'newrelic_rpm'
 gem 'responders'
 gem 'simple_form', '~> 2.0.0'
-
 
 group :test, :development do
   gem 'railroady'
