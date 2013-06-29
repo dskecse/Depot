@@ -6,6 +6,7 @@ Setup:
     cd depot2
     cp config/database.yml.example config/database.yml
     cp config/app_config.yml.example config/app_config.yml
+    cp config/newrelic.yml.example config/newrelic.yml
     bundle install
     rake db:setup
 
