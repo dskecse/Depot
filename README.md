@@ -11,14 +11,17 @@ Setup:
     bundle install
     rake db:setup
 
-Chrome driver is used instead of Firefox for acceptance tests.
+Chrome driver can be used instead of Firefox for acceptance tests.
 Download prebuilt ChromeDriver server:
 
     wget http://chromedriver.googlecode.com/files/chromedriver_linux64_23.0.1240.0.zip
     sudo unzip path_to_chromedriver/chromedriver_linux64_23.0.1240.0.zip -d /usr/local/bin/
 
-or download it manually from `https://code.google.com/p/chromedriver/downloads/list`
+or download it manually from `https://code.google.com/p/chromedriver/downloads/list`.
+Then just run tests in `CHROME` environment:
+
+    CHROME=1 bundle exec rake
 
 Test coverage is disabled by default. To enable it make sure to run tests in `COVERAGE` environment:
 
-    COVERAGE=true be rake
+    COVERAGE=1 bundle exec rake
