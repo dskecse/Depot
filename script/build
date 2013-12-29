@@ -1,2 +1,4 @@
 #!/bin/sh
+cp config/database.yml.example config/database.yml
 cp config/app_config.yml.example config/app_config.yml
+bundle exec rake db:create

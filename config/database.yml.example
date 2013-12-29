@@ -12,7 +12,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: depot2_development
+  database: depot_development
   pool: 5
   username: root
   password:
@@ -25,9 +25,9 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: depot2_test
+  database: myapp_test
   pool: 5
-  username: root
+  username: travis
   password:
   socket: /var/run/mysqld/mysqld.sock
 
@@ -35,7 +35,7 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: depot2_development
+  database: depot_development
   pool: 5
   username: root
   password:
