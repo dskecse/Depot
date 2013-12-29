@@ -1,4 +1,5 @@
 [![Code Climate](https://codeclimate.com/github/dskecse/depot2.png)](https://codeclimate.com/github/dskecse/depot2)
+[![Build Status](https://travis-ci.org/dskecse/depot.png)](https://travis-ci.org/dskecse/depot)
 
 Setup:
 
