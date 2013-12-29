@@ -29,7 +29,8 @@ group :test, :development do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', '~> 2.2.0'
+  gem 'selenium-webdriver', '~> 2.39.0'
   gem 'cucumber-rails', require: nil
   gem 'fuubar'
   gem 'fuubar-cucumber'

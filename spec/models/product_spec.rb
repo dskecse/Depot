@@ -14,7 +14,7 @@ describe Product do
   it { should validate_uniqueness_of(:title) }
   it { should ensure_length_of(:title).is_at_least(10).
                 with_message(/must be at least 10 characters long/) }
-  it { should validate_format_of(:image_url).with(/\.(gif|jpg|png)\z/i) }
+  it { should allow_value('icon.gif', 'icon.jpg', 'icon.png').for(:image_url) }
 
   describe 'price' do
     it 'must be greater than or equal to 0.01' do
