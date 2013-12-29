@@ -5,7 +5,7 @@
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = csrf_meta_tags
-  %body{class: "#{ controller.controller_name }"}
+  %body{class: controller_name}
     %header.navbar.navbar-fixed-top
       %nav.navbar-inner
         .container
@@ -13,10 +13,10 @@
     #main{role: 'main'}
       .container
         .row
-          - if controller.controller_name == 'store'
+          - if controller_name == 'store'
             = hidden_div_if(@cart.line_items.empty?, id: 'cart', class: 'span4') do
               = render @cart
-          %div{class: "span#{ controller.controller_name == 'store' ? '8' : '12' }"}
+          %div{class: "span#{ controller_name == 'store' ? '8' : '12' }"}
             = render 'layouts/messages'
             = yield
 
