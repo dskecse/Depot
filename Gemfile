@@ -37,4 +37,5 @@ group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'coveralls', require: false
 end

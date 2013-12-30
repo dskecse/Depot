@@ -1,4 +1,5 @@
 if ENV['COVERAGE']
+  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
   SimpleCov.start 'rails' do
     merge_timeout 3600
     add_group "App", "app"

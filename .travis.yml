@@ -1,5 +1,6 @@
 language: ruby
 before_script: ./script/build
+script: 'COVERAGE=1 bundle exec rake'
 rvm:
   - 1.9.3
   - 2.0.0
