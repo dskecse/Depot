@@ -1,5 +1,6 @@
 [![Code Climate](https://codeclimate.com/github/dskecse/depot2.png)](https://codeclimate.com/github/dskecse/depot2)
 [![Build Status](https://travis-ci.org/dskecse/depot.png)](https://travis-ci.org/dskecse/depot)
+[![Dependency Status](https://gemnasium.com/dskecse/depot.png)](https://gemnasium.com/dskecse/depot)
 
 Setup:
 
@@ -18,6 +19,7 @@ Download prebuilt ChromeDriver server:
     sudo unzip path_to_chromedriver/chromedriver_linux64_23.0.1240.0.zip -d /usr/local/bin/
 
 or download it manually from `https://code.google.com/p/chromedriver/downloads/list`.
+
 Then just run tests in `CHROME` environment:
 
     CHROME=1 bundle exec rake
