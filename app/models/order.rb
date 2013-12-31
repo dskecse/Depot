@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  attr_accessible :name, :address, :email, :payment_type_id
+  attr_accessible :name, :address, :email, :payment_type_id, :user
 
   has_many :line_items, dependent: :destroy
   belongs_to :payment_type

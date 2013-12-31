@@ -45,6 +45,6 @@ Order.transaction do
                   address: '12 Ocean Ave',
                   email:   'user@example.com',
                   user:    User.find_by_role('user'),
-                  payment_type_id: PaymentType.find_by_name('Check'))
+                  payment_type_id: PaymentType.find_by_name('Check').id)
   end
 end
