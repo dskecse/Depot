@@ -27,7 +27,7 @@ describe OrdersController do
     it "assigns a new order as @order" do
       cart = FactoryGirl.create(:cart)
       session[:cart_id] = cart.id
-      FactoryGirl.create(:line_item, cart_id: cart)
+      FactoryGirl.create(:line_item, cart_id: cart.id)
       get :new
       assigns(:order).should be_a_new(Order)
     end

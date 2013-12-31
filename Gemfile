@@ -1,25 +1,27 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'rails', '3.1.11'
+gem 'rails', '3.2.16'
 
 gem 'mysql2'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'coffee-rails', '~> 3.1.0'
-  gem 'uglifier'
+  gem 'coffee-rails', '~> 3.2.2'
+  gem 'sass-rails',   '~> 3.2.2'
+  gem 'uglifier',     '~> 2.4.0'
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 gem 'cancan'
-gem 'devise', '~> 2.1.2'
+gem 'devise', '~> 3.2.2'
 gem 'haml-rails'
 gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'responders'
-gem 'simple_form', '~> 2.0.0'
+gem 'simple_form', '~> 2.1.0'
 
 group :test, :development do
   gem 'railroady'

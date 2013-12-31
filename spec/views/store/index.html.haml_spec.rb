@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'store/index.html.erb' do
+describe 'store/index.html.haml' do
   before(:each) do
     assign(:products, [
       stub_model(Product,

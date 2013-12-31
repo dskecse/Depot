@@ -39,6 +39,7 @@ class ApplicationController < ActionController::Base
   private
 
     def current_cart
+      return nil unless current_user
       Cart.find(session[:cart_id])
     rescue ActiveRecord::RecordNotFound
       cart = Cart.create(user: current_user)

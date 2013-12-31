@@ -13,7 +13,7 @@
     #main{role: 'main'}
       .container
         .row
-          - if controller_name == 'store'
+          - if @cart && controller_name == 'store'
             = hidden_div_if(@cart.line_items.empty?, id: 'cart', class: 'span4') do
               = render @cart
           %div{class: "span#{ controller_name == 'store' ? '8' : '12' }"}
