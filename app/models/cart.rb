@@ -9,7 +9,9 @@ class Cart < ActiveRecord::Base
     if current_item
       current_item.increment(:quantity)
     else
-      current_item = line_items.build(product_id: product.id, price: product.price)
+      current_item = line_items.build
+      current_item.product = product
+      current_item.price   = product.price
     end
     current_item
   end

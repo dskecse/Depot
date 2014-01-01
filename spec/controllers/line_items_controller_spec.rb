@@ -77,12 +77,12 @@ describe LineItemsController do
       end
 
       it "assigns the requested line_item as @line_item" do
-        put :update, { id: @line_item.to_param, line_item: { product_id: 1, cart_id: 1 } }
+        put :update, { id: @line_item.to_param, line_item: { quantity: 2 } }
         assigns(:line_item).should eq(@line_item)
       end
 
       it "redirects to the line_item" do
-        put :update, { id: @line_item.to_param, line_item: { product_id: 1, cart_id: 1 } }
+        put :update, { id: @line_item.to_param, line_item: { quantity: 2 } }
         response.should redirect_to(@line_item)
       end
     end
