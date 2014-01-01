@@ -41,10 +41,12 @@ end
 
 Order.transaction do
   30.times do
-    Order.create!(name:    'Dave Thomas',
-                  address: '12 Ocean Ave',
-                  email:   'user@example.com',
-                  user:    User.find_by_role('user'),
-                  payment_type_id: PaymentType.find_by_name('Check').id)
+    Order.new.tap do |order|
+      order.name    = 'Dave Thomas'
+      order.address = '12 Ocean Ave'
+      order.email   = 'user@example.com'
+      order.user    = User.find_by_role('user')
+      order.payment_type = PaymentType.find_by_name('Check')
+    end.save!
   end
 end
