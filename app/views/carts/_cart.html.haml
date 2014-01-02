@@ -1,6 +1,6 @@
 %h1= t('.title')
 %table
-  = render(cart.line_items)
+  = render(cart.line_items.includes(:product))
   %tr.total_line
     %td(colspan=2) Total
     %td.total_cell= number_to_currency(cart.total_price)
