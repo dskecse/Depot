@@ -32,6 +32,9 @@ GEM
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
     builder (3.0.4)
+    bullet (4.7.1)
+      activesupport
+      uniform_notifier (>= 1.4.0)
     cancan (1.6.10)
     capybara (2.2.0)
       mime-types (>= 1.16)
@@ -220,6 +223,7 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
     websocket (1.0.7)
@@ -230,6 +234,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bullet
   cancan
   capybara (~> 2.2.0)
   coffee-rails (~> 3.2.2)

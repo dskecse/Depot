@@ -23,6 +23,10 @@ gem 'newrelic_rpm'
 gem 'responders'
 gem 'simple_form', '~> 2.1.0'
 
+group :development do
+  gem 'bullet'
+end
+
 group :test, :development do
   gem 'railroady'
   gem 'rspec-rails', '~> 2.0'
