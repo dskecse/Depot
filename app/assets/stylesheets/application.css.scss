@@ -1,6 +1,8 @@
 //= require_self
 //= require bootstrap
 
+@import "variables";
+
 @import "carts";
 @import "products";
 @import "store";
@@ -13,7 +15,7 @@ h1 {
   margin: 0;
   padding-bottom: 0.5em;
   font: 19px sans-serif !important;
-  color: #333;
+  color: $gray;
 }
 
 #cart {
@@ -25,8 +27,8 @@ h1 {
   }
 
   table {
-    border-top: 1px dotted #08c;
-    border-bottom: 1px dotted #08c;
+    border-top: 1px dotted $blue;
+    border-bottom: 1px dotted $blue;
     margin-bottom: 10px;
     width: 310px;
   }

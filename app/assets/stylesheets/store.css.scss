@@ -3,14 +3,14 @@
     margin: 0;
     padding-bottom: 0.5em;
     font: 150% sans-serif;
-    color: #333;
-    border-bottom: 3px dotted #08c;
+    color: $gray;
+    border-bottom: 3px dotted $blue;
   }
 
   .entry {
     overflow: auto;
     margin-top: 1em;
-    border-bottom: 1px dotted #08c;
+    border-bottom: 1px dotted $blue;
     min-height: 100px;
 
     img {
@@ -25,7 +25,7 @@
       margin-left: 100px;
       margin-top: 0;
       margin-bottom: 2px;
-      color: #333;
+      color: $gray;
     }
 
     p {
@@ -43,7 +43,7 @@
     }
 
     .price {
-      color: #08c;
+      color: $blue;
       font-weight: bold;
       margin-right: 3em;
     }
