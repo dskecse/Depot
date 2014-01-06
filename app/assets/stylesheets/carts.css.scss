@@ -1,0 +1,30 @@
+.carts {
+  .total_cell {
+    font-weight: bold;
+    border-top: 1px solid #08c;
+  }
+
+  .total_line {
+    text-align: right;
+    font-weight: bold;
+  }
+
+  .item_price {
+    text-align: right;
+    padding-left: 10px;
+  }
+
+  .decrement {
+    padding-left: 10px;
+  }
+}
+
+#cart {
+  @extend .carts;
+}
+
+.decrement {
+  width: 100px;
+  vertical-align: top;
+  padding: 2px 0;
+}

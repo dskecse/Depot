@@ -1,0 +1,37 @@
+//= require_self
+//= require bootstrap
+
+@import "carts";
+@import "products";
+@import "store";
+
+body {
+  padding: 60px 0 20px;
+}
+
+h1 {
+  margin: 0;
+  padding-bottom: 0.5em;
+  font: 19px sans-serif !important;
+  color: #333;
+}
+
+#cart {
+  width: 310px !important;
+  font-size: 11px;
+
+  h1 {
+    border-bottom: 0;
+  }
+
+  table {
+    border-top: 1px dotted #08c;
+    border-bottom: 1px dotted #08c;
+    margin-bottom: 10px;
+    width: 310px;
+  }
+}
+
+.help-block {
+  font-size: 12px;
+}

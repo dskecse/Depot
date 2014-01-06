@@ -1,0 +1,36 @@
+.products {
+  table {
+    border-collapse: collapse;
+
+    td {
+      padding: 5px;
+      vertical-align: top;
+    }
+  }
+
+  .list_image {
+    width: 60px;
+    height: 70px;
+  }
+
+  .list_description {
+    dl {
+      margin: 0;
+    }
+
+    dt {
+      color: #244;
+      font-weight: bold;
+      font-size: larger;
+    }
+
+    dd {
+      @extend dl;
+    }
+  }
+
+  .list_actions {
+    text-align: right;
+    padding-left: 1em;
+  }
+}
