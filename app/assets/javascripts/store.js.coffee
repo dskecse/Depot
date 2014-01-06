@@ -1,3 +1,3 @@
 $ ->
-  $('.store .entry > img').click ->
-    $(this).parent().find(':submit').click()
+  $('.store').find('.entry').children('img').click ->
+    $(@).parent().find(':submit').click()
