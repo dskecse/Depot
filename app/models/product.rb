@@ -13,7 +13,7 @@ class Product < ActiveRecord::Base
     message: 'must be at least 10 characters long'
   }
   validates :image_url, allow_blank: true, format: {
-    with:    %r(\.(gif|jpg|png)\z)i,
+    with:    %r(\A\w{1,}\.(gif|jpg|png)\z)i,
     message: 'must be a URL for GIF, JPG or PNG image'
   }
 
