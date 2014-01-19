@@ -1,4 +1,4 @@
 #!/bin/sh
-cp config/database.yml.example config/database.yml
-cp config/app_config.yml.example config/app_config.yml
+cp config/database.example.yml config/database.yml
+cp config/app_config.example.yml config/app_config.yml
 bundle exec rake db:setup
