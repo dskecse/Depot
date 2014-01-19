@@ -3,7 +3,10 @@
 [![Dependency Status](https://gemnasium.com/dskecse/depot.png)](https://gemnasium.com/dskecse/depot)
 [![Coverage Status](https://coveralls.io/repos/dskecse/depot/badge.png)](https://coveralls.io/r/dskecse/depot)
 
-Setup:
+# Depot
+A web-based shopping cart application
+
+## Installation
 
     git clone git@github.com:dskecse/depot2.git
     cd depot2
@@ -12,6 +15,8 @@ Setup:
     cp config/newrelic.yml.example config/newrelic.yml
     bundle install
     rake db:setup
+
+## Testing
 
 Chrome driver can be used instead of Firefox for acceptance tests.
 Download prebuilt ChromeDriver server:
