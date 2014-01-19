@@ -1,9 +1,10 @@
+# Depot
+
 [![Code Climate](https://codeclimate.com/github/dskecse/depot2.png)](https://codeclimate.com/github/dskecse/depot2)
 [![Build Status](https://travis-ci.org/dskecse/depot.png)](https://travis-ci.org/dskecse/depot)
 [![Dependency Status](https://gemnasium.com/dskecse/depot.png)](https://gemnasium.com/dskecse/depot)
 [![Coverage Status](https://coveralls.io/repos/dskecse/depot/badge.png)](https://coveralls.io/r/dskecse/depot)
 
-# Depot
 A web-based shopping cart application
 
 ## Installation
