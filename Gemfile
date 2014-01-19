@@ -25,6 +25,7 @@ gem 'simple_form', '~> 2.1.0'
 gem 'thin'
 
 group :development do
+  gem 'brakeman', require: false
   gem 'bullet'
   gem 'quiet_assets'
 end
