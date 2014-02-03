@@ -27,6 +27,8 @@ gem 'thin'
 group :development do
   gem 'brakeman', require: false
   gem 'bullet'
+  gem 'capistrano-deploy', require: false
+  gem 'rvm-capistrano' # integrate rvm with capistrano
   gem 'quiet_assets'
 end
 
