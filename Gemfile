@@ -50,3 +50,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'coveralls', require: false
 end
+
+group :production do
+  gem 'unicorn', '~> 4.8.1'
+end
