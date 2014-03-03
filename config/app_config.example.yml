@@ -1,7 +1,6 @@
 common: &common
   host: 'localhost:3000'
   mail_sender: 'noreply@example.com'
-  secret: '69d0d5b549ec27657c1987d78ba3ef41c7cb51cd08343dcdd49a05ed69e1374188ba8817e780f7c459283c7a32ba82c02ea0abfe7594edca4136889bec019a7e'
   smtp_settings:
     :address: 'smtp.gmail.com'
     :port: 587
