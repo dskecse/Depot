@@ -14,7 +14,7 @@ A web-based shopping cart application
     cp config/database.yml.example config/database.yml
     cp config/app_config.yml.example config/app_config.yml
     cp config/newrelic.yml.example config/newrelic.yml
-    bundle install
+    bundle install --without production
     rake db:setup
 
 ## Testing
