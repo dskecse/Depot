@@ -27,7 +27,4 @@ set :ssh_options, { config: false }
 
 #after 'deploy:update',  'bundle:install'
 #after 'deploy:update',  'deploy:assets:precompile'
-#after 'deploy:restart', 'unicorn:reload'
-
-# if you want to clean up old releases on each deploy uncomment this:
-after 'deploy', 'deploy:cleanup'
+after 'deploy:restart', 'unicorn:reload'
