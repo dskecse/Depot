@@ -7,6 +7,7 @@
 #
 # See http://unicorn.bogomips.org/Unicorn/Configurator.html for complete
 # documentation.
+ENV['RAILS_ENV'] = 'production'
 
 # Use at least one worker per core if you're on a dedicated server,
 # more will usually help for _short_ waits on databases/caches.
@@ -18,8 +19,9 @@ worker_processes 1
 # If running the master process as root and the workers as an unprivileged
 # user, do this to switch euid/egid in the workers (also chowns logs):
 # user "unprivileged_user", "unprivileged_group"
+user 'deployer', 'staff'
 
-app = '/home/depot/depot_production'
+app = '/home/deployer/depot_production/current'
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
@@ -82,14 +84,14 @@ before_fork do |server, worker|
   # # thundering herd (especially in the "preload_app false" case)
   # # when doing a transparent upgrade.  The last worker spawned
   # # will then kill off the old master process with a SIGQUIT.
-  # old_pid = "#{server.config[:pid]}.oldbin"
-  # if old_pid != server.pid
-  #   begin
-  #     sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
-  #     Process.kill(sig, File.read(old_pid).to_i)
-  #   rescue Errno::ENOENT, Errno::ESRCH
-  #   end
-  # end
+  old_pid = "#{server.config[:pid]}.oldbin"
+  if old_pid != server.pid
+    begin
+      sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
+      Process.kill(sig, File.read(old_pid).to_i)
+    rescue Errno::ENOENT, Errno::ESRCH
+    end
+  end
   #
   # Throttle the master from forking too quickly by sleeping.  Due
   # to the implementation of standard Unix signal handlers, this
